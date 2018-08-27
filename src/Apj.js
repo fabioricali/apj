@@ -5,10 +5,12 @@ const helmet = require('koa-helmet');
 const body = require('koa-body');
 const serve = require('koa-static');
 const success = require('koa-json-success');
+const responseError = require('./responseError');
 const http = require('http');
 const https = require('https');
 const EventEmitter = require('events');
 const options = require('./options');
+const validate = require('./validate');
 
 /**
  * Triggered on server start
@@ -74,7 +76,10 @@ class Apj extends EventEmitter {
         })(opt);
 
         this.app = new Koa();
-        this.app.context = Object.assign(this.app.context, this.opt.ctx);
+        this.app.context = Object.assign(this.app.context, {
+            validate,
+            __DEV__: this.opt.dev
+        }, this.opt.ctx);
 
         success(this.app, this.opt.successSettings);
 
@@ -144,6 +149,7 @@ class Apj extends EventEmitter {
         this._pluginInstances = [
             helmet(this.opt.helmetSettings),
             serve(this.opt.staticPath, {hidden: true}),
+            responseError,
             body(this.opt.bodySettings)
         ].concat(this.opt.use, [
             this.router.routes(),
