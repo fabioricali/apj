@@ -1,7 +1,7 @@
 {
   "name": "apj",
   "version": "0.0.0",
-  "description": "Start with a complete Koa server with zero configuration",
+  "description": "Start with a complete Koa server with zero configuration.",
   "main": "index.js",
   "scripts": {
     "preversion": "npm run-script test && npm run-script doc && git commit -a -m \"Update README\"",
