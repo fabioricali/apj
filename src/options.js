@@ -54,6 +54,14 @@ module.exports = {
     bodySettings: {
         type: 'object',
         default: {}
+    },
+    successSettings: {
+        type: 'object',
+        default: {}
+    },
+    ctx: {
+        type: 'object',
+        default: {}
     }
 
 };

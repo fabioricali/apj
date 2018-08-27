@@ -1,5 +1,6 @@
 const supertest = require('supertest');
 const Apj = require('../');
+const assert = require('assert');
 
 let server;
 let request;
@@ -20,7 +21,10 @@ describe('Apj router', function () {
                     const ms = Date.now() - start;
                     console.log(`${ctx.method} ${ctx.url} - ${ms}ms`);
                 }
-            ]
+            ],
+            ctx: {
+                myThing: 'ciao'
+            }
         }).start();
 
         server = app.server;
@@ -61,6 +65,24 @@ describe('Apj router', function () {
             .get('/my-route')
             .expect(200)
             .end((err, res) => {
+                if (err) throw err;
+                done()
+            });
+    });
+
+    it ('should be /my-route with ctx', function (done) {
+
+        app.router.get('/my-route', ctx => {
+            ctx.body = 'hello ' + ctx.myThing;
+        });
+
+        request
+            .get('/my-route')
+            .expect(200)
+            .expect(res => {
+                assert.strictEqual(res.text, 'hello ciao');
+            })
+            .end(err => {
                 if (err) throw err;
                 done()
             });

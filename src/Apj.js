@@ -4,6 +4,7 @@ const Router = require('koa-router');
 const helmet = require('koa-helmet');
 const body = require('koa-body');
 const serve = require('koa-static');
+const success = require('koa-json-success');
 const http = require('http');
 const https = require('https');
 const EventEmitter = require('events');
@@ -52,6 +53,8 @@ class Apj extends EventEmitter {
      * @param {object} [opt.helmetSettings] Helmet settings
      * @param {object} [opt.routerSettings] Router settings
      * @param {object} [opt.bodySettings] Body settings
+     * @param {object} [opt.successSettings] Success settings
+     * @param {object} [opt.ctx] Koa context
      * @param {string} [opt.staticPath=./public/] path to static resources
      * @param {array} [opt.use] array of middleware
      * @param {boolean} [opt.autoStart=false] start on create
@@ -71,6 +74,10 @@ class Apj extends EventEmitter {
         })(opt);
 
         this.app = new Koa();
+        this.app.context = Object.assign(this.app.context, this.opt.ctx);
+
+        success(this.app, this.opt.successSettings);
+
         this.router = new Router(this.opt.routerSettings);
         this.server = null;
         this.SSLServer = null;
