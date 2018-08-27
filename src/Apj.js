@@ -10,23 +10,61 @@ const EventEmitter = require('events');
 const options = require('./options');
 
 /**
- * @class Apj
+ * Triggered on server start
+ * @event Apj#start
  */
+
+/**
+ * Triggered on SSL server start
+ * @event Apj#SSLStart
+ */
+
+/**
+ * Triggered on server stop
+ * @event Apj#stop
+ */
+
+/**
+ * Triggered on SSL server stop
+ * @event Apj#SSLStop
+ */
+
+/**
+ * Apj instance
+ * @typedef {object} Apj~apj
+ * @property {object} app Koa instance
+ * @property {object} router router object
+ * @property {object} server server instance
+ * @property {object} SSLServer SSL server instance
+ */
+
 class Apj extends EventEmitter {
 
     /**
-     * Instance
-     * @param opt
+     * Create instance
+     * @param {object} [opt] options
+     * @param {string} [opt.host=localhost] host
+     * @param {number} [opt.port=80] port
+     * @param {object} [opt.serverOptions] server options
+     * @param {number} [opt.devPort=3000] dev port (when dev is true)
+     * @param {number} [opt.SSLPort=443] SSL port
+     * @param {object} [opt.serverSSLOptions] SSL server options
+     * @param {object} [opt.helmetSettings] Helmet settings
+     * @param {object} [opt.routerSettings] Router settings
+     * @param {object} [opt.bodySettings] Body settings
+     * @param {string} [opt.staticPath=./public/] path to static resources
+     * @param {array} [opt.use] array of middleware
+     * @param {boolean} [opt.autoStart=false] start on create
+     * @returns {Apj~apj|*}
      */
     constructor(opt = {}) {
 
         super();
 
         /**
-         * Options
+         * @ignore
          * @type {{}}
          */
-
         this.opt = new Validator(options, {
             returnImmutable: true,
             overwriteUndefined: true
@@ -34,6 +72,8 @@ class Apj extends EventEmitter {
 
         this.app = new Koa();
         this.router = new Router(this.opt.routerSettings);
+        this.server = null;
+        this.SSLServer = null;
 
         this._appendPlugin();
 
@@ -44,6 +84,8 @@ class Apj extends EventEmitter {
 
     /**
      * Start server app
+     * @fires Apj#start
+     * @fires Apj#SSLStart
      * @returns {Apj}
      */
     start() {
@@ -70,6 +112,8 @@ class Apj extends EventEmitter {
 
     /**
      * Stop server app
+     * @fires Apj#stop
+     * @fires Apj#SSLStop
      * @returns {Apj}
      */
     stop() {
@@ -93,7 +137,7 @@ class Apj extends EventEmitter {
         this._pluginInstances = [
             helmet(this.opt.helmetSettings),
             serve(this.opt.staticPath, {hidden: true}),
-            body()
+            body(this.opt.bodySettings)
         ].concat(this.opt.use, [
             this.router.routes(),
             this.router.allowedMethods()

@@ -50,6 +50,10 @@ module.exports = {
     autoStart: {
         type: 'boolean',
         default: false
+    },
+    bodySettings: {
+        type: 'object',
+        default: {}
     }
 
 };

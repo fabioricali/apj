@@ -1,11 +1,27 @@
 {
   "name": "apj",
   "version": "0.0.0",
-  "description": "API server",
+  "description": "Start with a complete Koa server with zero configuration",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test"
+    "preversion": "npm run-script test && npm run-script doc && git commit -a -m \"Update README\"",
+    "version:major": "npm version major",
+    "version:minor": "npm version minor",
+    "version:patch": "npm version patch",
+    "postversion": "git push --follow-tags && npm publish",
+    "test": "mocha test",
+    "doc": "jsdoc2md --template README.hbs --no-gfm --files src/Apj.js > README.md"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabioricali/apj.git"
+  },
+  "keywords": [
+    "koa",
+    "api",
+    "static",
+    "server"
+  ],
   "author": "Fabio Ricali",
   "license": "MIT",
   "dependencies": {
@@ -18,6 +34,7 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
+    "jsdoc-to-markdown": "^4.0.1",
     "mocha": "^5.2.0",
     "supertest": "^3.1.0"
   }
