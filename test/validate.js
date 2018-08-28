@@ -38,9 +38,9 @@ describe('Apj validate', function () {
     it ('validation should be ok', function (done) {
 
         app.router.post('/my-route', ctx => {
-            ctx.validate({
+            ctx.struct({
                 hello: 'string'
-            }, ctx.request.body);
+            });
             ctx.body = 'ok';
         });
 
@@ -57,7 +57,7 @@ describe('Apj validate', function () {
     it ('validation should be fail', function (done) {
 
         app.router.post('/my-route-fail', ctx => {
-            ctx.validate({
+            ctx.struct({
                 hello: 'string'
             });
         });

@@ -32,6 +32,7 @@
     "koa-json-success": "^1.2.2",
     "koa-router": "^7.4.0",
     "koa-static": "^5.0.0",
+    "koa-struct": "^1.0.0",
     "valify": "^4.5.0"
   },
   "devDependencies": {

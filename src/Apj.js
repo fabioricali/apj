@@ -4,13 +4,13 @@ const Router = require('koa-router');
 const helmet = require('koa-helmet');
 const body = require('koa-body');
 const serve = require('koa-static');
+const struct = require('koa-struct');
 const success = require('koa-json-success');
 const responseError = require('./responseError');
 const http = require('http');
 const https = require('https');
 const EventEmitter = require('events');
 const options = require('./options');
-const validate = require('./validate');
 
 /**
  * Triggered on server start
@@ -56,6 +56,7 @@ class Apj extends EventEmitter {
      * @param {object} [opt.routerSettings] Router settings
      * @param {object} [opt.bodySettings] Body settings
      * @param {object} [opt.successSettings] Success settings
+     * @param {object} [opt.structSettings] Struct settings
      * @param {object} [opt.ctx] Koa context
      * @param {string} [opt.staticPath=./public/] path to static resources
      * @param {array} [opt.use] array of middleware
@@ -77,7 +78,6 @@ class Apj extends EventEmitter {
 
         this.app = new Koa();
         this.app.context = Object.assign(this.app.context, {
-            validate,
             __DEV__: this.opt.dev
         }, this.opt.ctx);
 
@@ -146,11 +146,15 @@ class Apj extends EventEmitter {
      * @ignore
      */
     _appendPlugin() {
+
+        console.log('RESPONSE ERROR ERROR', responseError);
+
         this._pluginInstances = [
             helmet(this.opt.helmetSettings),
             serve(this.opt.staticPath, {hidden: true}),
-            responseError,
-            body(this.opt.bodySettings)
+            responseError(this.opt.dev),
+            body(this.opt.bodySettings),
+            struct(this.opt.structSettings)
         ].concat(this.opt.use, [
             this.router.routes(),
             this.router.allowedMethods()

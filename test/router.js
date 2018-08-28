@@ -72,12 +72,12 @@ describe('Apj router', function () {
 
     it ('should be /my-route with ctx', function (done) {
 
-        app.router.get('/my-route', ctx => {
+        app.router.get('/my-route/hello', ctx => {
             ctx.body = 'hello ' + ctx.myThing;
         });
 
         request
-            .get('/my-route')
+            .get('/my-route/hello')
             .expect(200)
             .expect(res => {
                 assert.strictEqual(res.text, 'hello ciao');

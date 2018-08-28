@@ -62,6 +62,10 @@ module.exports = {
     ctx: {
         type: 'object',
         default: {}
+    },
+    structSettings: {
+        type: 'object',
+        default: {}
     }
 
 };
