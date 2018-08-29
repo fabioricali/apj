@@ -9,6 +9,9 @@ Apj includes Koa packages:
 - <a href="https://github.com/venables/koa-helmet" target="_blank">koa-helmet</a>
 - <a href="https://github.com/alexmingoia/koa-router" target="_blank">koa-router</a>
 - <a href="https://github.com/koajs/static" target="_blank">koa-static</a>
+- <a href="https://www.npmjs.com/package/koa-views" target="_blank">koa-views</a>
+- <a href="https://github.com/fabioricali/koa-json-success" target="_blank">koa-json-success</a>
+- <a href="https://github.com/fabioricali/koa-struct" target="_blank">koa-struct</a>
 
 ## Installation
 
@@ -114,13 +117,28 @@ Create instance
     <td>[opt.serverSSLOptions]</td><td><code>object</code></td><td></td><td><p>SSL server options</p>
 </td>
     </tr><tr>
-    <td>[opt.helmetSettings]</td><td><code>object</code></td><td></td><td><p>Helmet settings</p>
+    <td>[opt.helmetSettings]</td><td><code>object</code></td><td></td><td><p>koa-helmet settings</p>
 </td>
     </tr><tr>
-    <td>[opt.routerSettings]</td><td><code>object</code></td><td></td><td><p>Router settings</p>
+    <td>[opt.routerSettings]</td><td><code>object</code></td><td></td><td><p>koa-router settings</p>
 </td>
     </tr><tr>
-    <td>[opt.bodySettings]</td><td><code>object</code></td><td></td><td><p>Body settings</p>
+    <td>[opt.bodySettings]</td><td><code>object</code></td><td></td><td><p>koa-body settings</p>
+</td>
+    </tr><tr>
+    <td>[opt.successSettings]</td><td><code>object</code></td><td></td><td><p>koa-json-success settings</p>
+</td>
+    </tr><tr>
+    <td>[opt.structSettings]</td><td><code>object</code></td><td></td><td><p>koa-struct settings</p>
+</td>
+    </tr><tr>
+    <td>[opt.viewsSettings]</td><td><code>object</code></td><td></td><td><p>koa-views settings</p>
+</td>
+    </tr><tr>
+    <td>[opt.ctx]</td><td><code>object</code></td><td></td><td><p>Koa context</p>
+</td>
+    </tr><tr>
+    <td>[opt.viewsPath]</td><td><code>string</code></td><td><code>&quot;./views/&quot;</code></td><td><p>path to views</p>
 </td>
     </tr><tr>
     <td>[opt.staticPath]</td><td><code>string</code></td><td><code>&quot;./public/&quot;</code></td><td><p>path to static resources</p>
