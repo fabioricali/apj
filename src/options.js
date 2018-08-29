@@ -66,6 +66,19 @@ module.exports = {
     structSettings: {
         type: 'object',
         default: {}
+    },
+    viewsSettings: {
+        type: 'object',
+        default: {
+            map: {
+                hbs: 'handlebars'
+            },
+            extension: 'hbs'
+        }
+    },
+    viewsPath: {
+        type: 'string',
+        default: './views/'
     }
 
 };

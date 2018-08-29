@@ -6,6 +6,7 @@ const body = require('koa-body');
 const serve = require('koa-static');
 const struct = require('koa-struct');
 const success = require('koa-json-success');
+const views = require('koa-views');
 const responseError = require('./responseError');
 const http = require('http');
 const https = require('https');
@@ -57,7 +58,9 @@ class Apj extends EventEmitter {
      * @param {object} [opt.bodySettings] koa-body settings
      * @param {object} [opt.successSettings] koa-json-success settings
      * @param {object} [opt.structSettings] koa-struct settings
+     * @param {object} [opt.viewsSettings] koa-views settings
      * @param {object} [opt.ctx] Koa context
+     * @param {string} [opt.viewsPath=./views/] path to views
      * @param {string} [opt.staticPath=./public/] path to static resources
      * @param {array} [opt.use] array of middleware
      * @param {boolean} [opt.autoStart=false] start on create
@@ -147,14 +150,13 @@ class Apj extends EventEmitter {
      */
     _appendPlugin() {
 
-        console.log('RESPONSE ERROR ERROR', responseError);
-
         this._pluginInstances = [
             helmet(this.opt.helmetSettings),
             serve(this.opt.staticPath, {hidden: true}),
             responseError(this.opt.dev),
             body(this.opt.bodySettings),
-            struct(this.opt.structSettings)
+            struct(this.opt.structSettings),
+            views(this.opt.viewsPath, this.opt.viewsSettings)
         ].concat(this.opt.use, [
             this.router.routes(),
             this.router.allowedMethods()
