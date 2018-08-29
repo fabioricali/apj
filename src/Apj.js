@@ -52,11 +52,11 @@ class Apj extends EventEmitter {
      * @param {number} [opt.devPort=3000] dev port (when dev is true)
      * @param {number} [opt.SSLPort=443] SSL port
      * @param {object} [opt.serverSSLOptions] SSL server options
-     * @param {object} [opt.helmetSettings] Helmet settings
-     * @param {object} [opt.routerSettings] Router settings
-     * @param {object} [opt.bodySettings] Body settings
-     * @param {object} [opt.successSettings] Success settings
-     * @param {object} [opt.structSettings] Struct settings
+     * @param {object} [opt.helmetSettings] koa-helmet settings
+     * @param {object} [opt.routerSettings] koa-router settings
+     * @param {object} [opt.bodySettings] koa-body settings
+     * @param {object} [opt.successSettings] koa-json-success settings
+     * @param {object} [opt.structSettings] koa-struct settings
      * @param {object} [opt.ctx] Koa context
      * @param {string} [opt.staticPath=./public/] path to static resources
      * @param {array} [opt.use] array of middleware
