@@ -67,6 +67,14 @@ module.exports = {
         type: 'object',
         default: {}
     },
+    loggerSettings: {
+        type: 'object',
+        default: {}
+    },
+    logger: {
+        type: 'boolean',
+        default: false
+    },
     viewsSettings: {
         type: 'object',
         default: {

@@ -30,6 +30,7 @@
     "koa-helmet": "^4.0.0",
     "koa-json-error": "^3.1.2",
     "koa-json-success": "^1.2.2",
+    "koa-logger": "^3.2.0",
     "koa-router": "^7.4.0",
     "koa-static": "^5.0.0",
     "koa-struct": "^1.0.0",

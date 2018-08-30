@@ -7,6 +7,7 @@ const serve = require('koa-static');
 const struct = require('koa-struct');
 const success = require('koa-json-success');
 const views = require('koa-views');
+const logger = require('koa-logger');
 const responseError = require('./responseError');
 const http = require('http');
 const https = require('https');
@@ -59,6 +60,8 @@ class Apj extends EventEmitter {
      * @param {object} [opt.successSettings] koa-json-success settings
      * @param {object} [opt.structSettings] koa-struct settings
      * @param {object} [opt.viewsSettings] koa-views settings
+     * @param {object} [opt.loggerSettings] koa-logger settings
+     * @param {object} [opt.logger=false] active koa-logger
      * @param {object} [opt.ctx] Koa context
      * @param {string} [opt.viewsPath=./views/] path to views
      * @param {string} [opt.staticPath=./public/] path to static resources
@@ -149,6 +152,10 @@ class Apj extends EventEmitter {
      * @ignore
      */
     _appendPlugin() {
+
+        if (this.opt.dev || this.opt.logger) {
+            this.app.use(logger(this.opt.loggerSettings));
+        }
 
         this._pluginInstances = [
             helmet(this.opt.helmetSettings),
