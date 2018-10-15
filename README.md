@@ -10,8 +10,10 @@ Apj includes Koa packages:
 - <a href="https://github.com/alexmingoia/koa-router" target="_blank">koa-router</a>
 - <a href="https://github.com/koajs/static" target="_blank">koa-static</a>
 - <a href="https://www.npmjs.com/package/koa-views" target="_blank">koa-views</a>
+- <a href="https://www.npmjs.com/package/koa-logger" target="_blank">koa-logger</a>
 - <a href="https://github.com/fabioricali/koa-json-success" target="_blank">koa-json-success</a>
 - <a href="https://github.com/fabioricali/koa-struct" target="_blank">koa-struct</a>
+- <a href="https://github.com/fabioricali/koa-incache" target="_blank">koa-incache</a>
 
 ## Installation
 
@@ -132,7 +134,16 @@ Create instance
     <td>[opt.structSettings]</td><td><code>object</code></td><td></td><td><p>koa-struct settings</p>
 </td>
     </tr><tr>
+    <td>[opt.cacheSettings]</td><td><code>object</code></td><td></td><td><p>koa-incache settings</p>
+</td>
+    </tr><tr>
     <td>[opt.viewsSettings]</td><td><code>object</code></td><td></td><td><p>koa-views settings</p>
+</td>
+    </tr><tr>
+    <td>[opt.loggerSettings]</td><td><code>object</code></td><td></td><td><p>koa-logger settings</p>
+</td>
+    </tr><tr>
+    <td>[opt.logger]</td><td><code>object</code></td><td><code>false</code></td><td><p>active koa-logger</p>
 </td>
     </tr><tr>
     <td>[opt.ctx]</td><td><code>object</code></td><td></td><td><p>Koa context</p>
