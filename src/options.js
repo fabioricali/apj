@@ -1,6 +1,6 @@
 /**
  * Options
- * @type {{host: {type: string, default: string}, port: {type: string, default: number}, devPort: {type: string, default: number}, dev: {type: string, default: boolean}, SSLPort: {type: string, default: number}, serverOptions: {type: string, default: null}, serverSSLOptions: {type: string, default: null}, helmetSettings: {type: string, default: {}}, routerSettings: {type: string, default: {}}, staticPath: {type: string, default: string}, use: {type: string, default: Array}, autoStart: {type: string, default: boolean}}}
+ * @type {{host: {type: string, default: string}, port: {type: string, default: number}, devPort: {type: string, default: number}, dev: {type: string, default: boolean}, SSLPort: {type: string, default: number}, serverOptions: {type: string, default: null}, serverSSLOptions: {type: string, default: null}, helmetSettings: {type: string, default: {}}, routerSettings: {type: string, default: {}}, staticPath: {type: string, default: string}, use: {type: string, default: Array}, autoStart: {type: string, default: boolean}, bodySettings: {type: string, default: {}}, successSettings: {type: string, default: {}}, ctx: {type: string, default: {}}, structSettings: {type: string, default: {}}, loggerSettings: {type: string, default: {}}, cacheSettings: {type: string, default: {}}, logger: {type: string, default: boolean}, viewsSettings: {type: string, default: {map: {hbs: string}, extension: string}}, viewsPath: {type: string, default: string}}}
  */
 module.exports = {
     host: {
@@ -68,6 +68,10 @@ module.exports = {
         default: {}
     },
     loggerSettings: {
+        type: 'object',
+        default: {}
+    },
+    cacheSettings: {
         type: 'object',
         default: {}
     },

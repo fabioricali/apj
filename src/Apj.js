@@ -4,6 +4,7 @@ const Router = require('koa-router');
 const helmet = require('koa-helmet');
 const body = require('koa-body');
 const serve = require('koa-static');
+const cache = require('koa-incache');
 const struct = require('koa-struct');
 const success = require('koa-json-success');
 const views = require('koa-views');
@@ -59,6 +60,7 @@ class Apj extends EventEmitter {
      * @param {object} [opt.bodySettings] koa-body settings
      * @param {object} [opt.successSettings] koa-json-success settings
      * @param {object} [opt.structSettings] koa-struct settings
+     * @param {object} [opt.cacheSettings] koa-incache settings
      * @param {object} [opt.viewsSettings] koa-views settings
      * @param {object} [opt.loggerSettings] koa-logger settings
      * @param {object} [opt.logger=false] active koa-logger
@@ -162,6 +164,7 @@ class Apj extends EventEmitter {
             serve(this.opt.staticPath, {hidden: true}),
             responseError(this.opt.dev),
             body(this.opt.bodySettings),
+            cache(this.opt.cacheSettings),
             struct(this.opt.structSettings),
             views(this.opt.viewsPath, this.opt.viewsSettings)
         ].concat(this.opt.use, [
