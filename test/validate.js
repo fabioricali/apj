@@ -8,8 +8,6 @@ let app;
 
 describe('Apj validate', function () {
 
-    this.timeout(5000);
-
     before(function () {
         app = new Apj({
             dev: true,

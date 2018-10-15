@@ -2,8 +2,6 @@ const Apj = require('../');
 
 describe('Apj', function () {
 
-    this.timeout(10000);
-
     it('should be ok', function (done) {
         const app = new Apj({
             dev: true

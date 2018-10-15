@@ -8,8 +8,6 @@ let app;
 
 describe('Apj router', function () {
 
-    this.timeout(5000);
-
     before(function () {
         app = new Apj({
             dev: true,
