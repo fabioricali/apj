@@ -69,6 +69,7 @@ class Apj extends EventEmitter {
      * @param {string} [opt.staticPath=./public/] path to static resources
      * @param {array} [opt.use] array of middleware
      * @param {boolean} [opt.autoStart=false] start on create
+     * @param {boolean} [opt.responseErrorHandler] manipulate message and code
      * @returns {Apj~apj|*}
      */
     constructor(opt = {}) {
@@ -162,7 +163,7 @@ class Apj extends EventEmitter {
         this._pluginInstances = [
             helmet(this.opt.helmetSettings),
             serve(this.opt.staticPath, {hidden: true}),
-            responseError(this.opt.dev),
+            responseError(this.opt.dev, this.opt.responseErrorHandler),
             body(this.opt.bodySettings),
             cache(this.opt.cacheSettings),
             struct(this.opt.structSettings),

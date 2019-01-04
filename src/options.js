@@ -91,6 +91,11 @@ module.exports = {
     viewsPath: {
         type: 'string',
         default: './views/'
+    },
+    responseErrorHandler: {
+        type: 'function',
+        allowNull: true, // see overwriteUndefined
+        required: false
     }
 
 };

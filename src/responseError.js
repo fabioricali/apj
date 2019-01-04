@@ -4,7 +4,7 @@ const jsonResponse = require('koa-json-success').response;
 /**
  * JSON response error
  */
-module.exports =  dev => {
+module.exports =  (dev, responseErrorHandler) => {
     return jsonError(err => {
 
         let defaultError = 'server error';
@@ -13,12 +13,28 @@ module.exports =  dev => {
             defaultError = 'not found';
         }
 
+        let message = dev ? err.message : defaultError;
+        let code = err.status || 500;
+        let result = {
+            errorCode: code
+        };
+
+        if (responseErrorHandler) {
+            const resultResponse = responseErrorHandler(err, dev);
+            if (resultResponse && typeof resultResponse === 'object') {
+                message = resultResponse.message || message;
+                result.errorCode = resultResponse.errorCode || result.errorCode;
+                code = resultResponse.code || code;
+                err.status = code;
+            }
+        }
+
         /** @namespace CONFIG.exposeError */
         return jsonResponse(
             false,
-            dev ? err.message : defaultError,
-            null,
-            err.status || 500
+            message,
+            result,
+            code
         );
     });
 };
