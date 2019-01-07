@@ -161,6 +161,9 @@ Create instance
     </tr><tr>
     <td>[opt.autoStart]</td><td><code>boolean</code></td><td><code>false</code></td><td><p>start on create</p>
 </td>
+    </tr><tr>
+    <td>[opt.responseErrorHandler]</td><td><code>boolean</code></td><td></td><td><p>manipulate message and code</p>
+</td>
     </tr>  </tbody>
 </table>
 
