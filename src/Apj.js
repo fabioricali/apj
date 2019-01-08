@@ -70,6 +70,7 @@ class Apj extends EventEmitter {
      * @param {array} [opt.use] array of middleware
      * @param {boolean} [opt.autoStart=false] start on create
      * @param {boolean} [opt.responseErrorHandler] manipulate message and code
+     * @param {boolean} [opt.exposeError] expose all errors
      * @returns {Apj~apj|*}
      */
     constructor(opt = {}) {
@@ -163,7 +164,7 @@ class Apj extends EventEmitter {
         this._pluginInstances = [
             helmet(this.opt.helmetSettings),
             serve(this.opt.staticPath, {hidden: true}),
-            responseError(this.opt.dev, this.opt.responseErrorHandler),
+            responseError(this.opt.dev, this.opt.responseErrorHandler, this.opt.exposeError),
             body(this.opt.bodySettings),
             cache(this.opt.cacheSettings),
             struct(this.opt.structSettings),
