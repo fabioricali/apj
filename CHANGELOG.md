@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+[1.4.1] - 2019-01-25
+- **Updated** koa-json-success
+
 [1.4.0] - 2019-01-08
 - **Added** `exposeError` option
 

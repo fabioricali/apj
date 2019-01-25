@@ -164,6 +164,9 @@ Create instance
     </tr><tr>
     <td>[opt.responseErrorHandler]</td><td><code>boolean</code></td><td></td><td><p>manipulate message and code</p>
 </td>
+    </tr><tr>
+    <td>[opt.exposeError]</td><td><code>boolean</code></td><td></td><td><p>expose all errors</p>
+</td>
     </tr>  </tbody>
 </table>
 
