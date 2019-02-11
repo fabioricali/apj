@@ -75,6 +75,10 @@ module.exports = {
         type: 'object',
         default: {}
     },
+    corsSettings: {
+        type: 'object',
+        default: {}
+    },
     logger: {
         type: 'boolean',
         default: false

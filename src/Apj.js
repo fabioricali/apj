@@ -9,6 +9,7 @@ const struct = require('koa-struct');
 const success = require('koa-json-success');
 const views = require('koa-views');
 const logger = require('koa-logger');
+const cors = require('@koa/cors');
 const responseError = require('./responseError');
 const http = require('http');
 const https = require('https');
@@ -162,6 +163,7 @@ class Apj extends EventEmitter {
         }
 
         this._pluginInstances = [
+            cors(this.opt.corsSettings),
             helmet(this.opt.helmetSettings),
             serve(this.opt.staticPath, {hidden: true}),
             responseError(this.opt.dev, this.opt.responseErrorHandler, this.opt.exposeError),

@@ -25,6 +25,7 @@
   "author": "Fabio Ricali",
   "license": "MIT",
   "dependencies": {
+    "@koa/cors": "^2.2.3",
     "koa": "^2.5.2",
     "koa-body": "^4.0.4",
     "koa-helmet": "^4.0.0",
