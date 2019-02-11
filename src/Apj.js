@@ -9,6 +9,7 @@ const struct = require('koa-struct');
 const success = require('koa-json-success');
 const views = require('koa-views');
 const logger = require('koa-logger');
+const session = require('koa-session');
 const cors = require('@koa/cors');
 const responseError = require('./responseError');
 const http = require('http');
@@ -63,6 +64,7 @@ class Apj extends EventEmitter {
      * @param {object} [opt.structSettings] koa-struct settings
      * @param {object} [opt.cacheSettings] koa-incache settings
      * @param {object} [opt.corsSettings] @koa/cors@2 settings
+     * @param {object} [opt.sessionSettings] koa-session settings
      * @param {object} [opt.viewsSettings] koa-views settings
      * @param {object} [opt.loggerSettings] koa-logger settings
      * @param {object} [opt.logger=false] active koa-logger
@@ -177,9 +179,11 @@ class Apj extends EventEmitter {
             this.router.allowedMethods()
         ]);
 
+        this.app.use(session(this.opt.sessionSettings, this.app));
+
         this._pluginInstances.forEach(plugin => {
             this.app.use(plugin);
-        })
+        });
     }
 }
 

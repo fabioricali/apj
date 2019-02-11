@@ -79,6 +79,10 @@ module.exports = {
         type: 'object',
         default: {}
     },
+    sessionSettings: {
+        type: 'object',
+        default: {}
+    },
     logger: {
         type: 'boolean',
         default: false

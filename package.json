@@ -4,7 +4,7 @@
   "description": "Start with a complete Koa server with zero configuration.",
   "main": "index.js",
   "scripts": {
-    "preversion": "npm run-script test && npm run-script doc && echo git commit -a -m \"Update README\"",
+    "preversion": "npm run-script test && npm run-script doc && git commit -a -m \"Update README\"",
     "version:major": "npm version major",
     "version:minor": "npm version minor",
     "version:patch": "npm version patch",
@@ -34,6 +34,7 @@
     "koa-json-success": "^1.3.1",
     "koa-logger": "^3.2.0",
     "koa-router": "^7.4.0",
+    "koa-session": "^5.10.1",
     "koa-static": "^5.0.0",
     "koa-struct": "^1.0.0",
     "koa-views": "^6.1.4",
