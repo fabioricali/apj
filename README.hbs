@@ -43,12 +43,13 @@ new Apj({
 Add routes
 ```javascript
 
-const app = new Apj().start();
+const app = new Apj();
 
 app.router.get('/my-route', ctx => {
     ctx.body = 'hello';
 });
 
+app.start();
 ```
 
 Use middleware
