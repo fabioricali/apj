@@ -62,6 +62,7 @@ class Apj extends EventEmitter {
      * @param {object} [opt.successSettings] koa-json-success settings
      * @param {object} [opt.structSettings] koa-struct settings
      * @param {object} [opt.cacheSettings] koa-incache settings
+     * @param {object} [opt.corsSettings] @koa/cors@2 settings
      * @param {object} [opt.viewsSettings] koa-views settings
      * @param {object} [opt.loggerSettings] koa-logger settings
      * @param {object} [opt.logger=false] active koa-logger
