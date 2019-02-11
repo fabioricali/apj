@@ -15,6 +15,7 @@ Apj includes Koa packages:
 - <a href="https://github.com/fabioricali/koa-json-success" target="_blank">koa-json-success</a>
 - <a href="https://github.com/fabioricali/koa-struct" target="_blank">koa-struct</a>
 - <a href="https://github.com/fabioricali/koa-incache" target="_blank">koa-incache</a>
+- <a href="https://github.com/koajs/cors" target="_blank">@koa/cors@2</a>
 
 ## Installation
 
@@ -43,12 +44,13 @@ new Apj({
 Add routes
 ```javascript
 
-const app = new Apj().start();
+const app = new Apj();
 
 app.router.get('/my-route', ctx => {
     ctx.body = 'hello';
 });
 
+app.start();
 ```
 
 Use middleware
@@ -136,6 +138,9 @@ Create instance
 </td>
     </tr><tr>
     <td>[opt.cacheSettings]</td><td><code>object</code></td><td></td><td><p>koa-incache settings</p>
+</td>
+    </tr><tr>
+    <td>[opt.corsSettings]</td><td><code>object</code></td><td></td><td><p>@koa/cors@2 settings</p>
 </td>
     </tr><tr>
     <td>[opt.viewsSettings]</td><td><code>object</code></td><td></td><td><p>koa-views settings</p>
