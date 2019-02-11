@@ -143,6 +143,9 @@ Create instance
     <td>[opt.corsSettings]</td><td><code>object</code></td><td></td><td><p>@koa/cors@2 settings</p>
 </td>
     </tr><tr>
+    <td>[opt.sessionSettings]</td><td><code>object</code></td><td></td><td><p>koa-session settings</p>
+</td>
+    </tr><tr>
     <td>[opt.viewsSettings]</td><td><code>object</code></td><td></td><td><p>koa-views settings</p>
 </td>
     </tr><tr>
