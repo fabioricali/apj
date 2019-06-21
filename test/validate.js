@@ -63,7 +63,7 @@ describe('Apj validate', function () {
         request
             .post('/my-route-fail')
             .send({})
-            .expect(500)
+            .expect(400)
             .end((err, res) => {
                 console.log(res.text);
                 if (err) throw err;
