@@ -112,14 +112,15 @@ class Apj extends EventEmitter {
      * Start server app
      * @fires Apj#start
      * @fires Apj#SSLStart
+     * @param port
      * @returns {Apj}
      */
-    start() {
-        const port = this.opt.dev ? this.opt.devPort : this.opt.port;
+    start(port) {
+        const _port = port || this.opt.dev ? this.opt.devPort : this.opt.port;
 
         this.server = http
             .createServer(this.app.callback())
-            .listen(port, this.opt.host, () => {
+            .listen(_port, this.opt.host, () => {
                 if (this.opt.dev) {
                     console.log(`Start DEV server at http://${this.opt.host}:${this.opt.devPort}`);
                 }
