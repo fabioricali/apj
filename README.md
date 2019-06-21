@@ -16,6 +16,7 @@ Apj includes Koa packages:
 - <a href="https://github.com/fabioricali/koa-struct" target="_blank">koa-struct</a>
 - <a href="https://github.com/fabioricali/koa-incache" target="_blank">koa-incache</a>
 - <a href="https://github.com/koajs/cors" target="_blank">@koa/cors@2</a>
+- <a href="https://github.com/koajs/session" target="_blank">koa-session</a>
 
 ## Installation
 
@@ -79,7 +80,7 @@ new Apj({
 * [Apj](#Apj)
     * [new Apj([opt])](#new_Apj_new)
     * _instance_
-        * [.start()](#Apj+start) ⇒ [<code>Apj</code>](#Apj)
+        * [.start(port)](#Apj+start) ⇒ [<code>Apj</code>](#Apj)
         * [.stop()](#Apj+stop) ⇒ [<code>Apj</code>](#Apj)
         * ["start"](#Apj+event_start)
         * ["SSLStart"](#Apj+event_SSLStart)
@@ -180,11 +181,23 @@ Create instance
 
 <a name="Apj+start"></a>
 
-### apj.start() ⇒ [<code>Apj</code>](#Apj)
+### apj.start(port) ⇒ [<code>Apj</code>](#Apj)
 Start server app
 
 **Kind**: instance method of [<code>Apj</code>](#Apj)  
 **Emits**: [<code>start</code>](#Apj+event_start), [<code>SSLStart</code>](#Apj+event_SSLStart)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>port</td>
+    </tr>  </tbody>
+</table>
+
 <a name="Apj+stop"></a>
 
 ### apj.stop() ⇒ [<code>Apj</code>](#Apj)
