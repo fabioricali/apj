@@ -116,7 +116,7 @@ class Apj extends EventEmitter {
      * @returns {Apj}
      */
     start(port) {
-        const _port = port || this.opt.dev ? this.opt.devPort : this.opt.port;
+        const _port = port || (this.opt.dev ? this.opt.devPort : this.opt.port);
 
         this.server = http
             .createServer(this.app.callback())
