@@ -1,6 +1,6 @@
 /**
  * Options
- * @type {{host: {type: string, default: string}, port: {type: string, default: number}, devPort: {type: string, default: number}, dev: {type: string, default: boolean}, SSLPort: {type: string, default: number}, serverOptions: {type: string, default: null}, serverSSLOptions: {type: string, default: null}, helmetSettings: {type: string, default: {}}, routerSettings: {type: string, default: {}}, staticPath: {type: string, default: string}, use: {type: string, default: Array}, autoStart: {type: string, default: boolean}, bodySettings: {type: string, default: {}}, successSettings: {type: string, default: {}}, ctx: {type: string, default: {}}, structSettings: {type: string, default: {}}, loggerSettings: {type: string, default: {}}, cacheSettings: {type: string, default: {}}, logger: {type: string, default: boolean}, viewsSettings: {type: string, default: {map: {hbs: string}, extension: string}}, viewsPath: {type: string, default: string}}}
+ * @type {{responseErrorHandler: {allowNull: boolean, type: string, required: boolean}, helmetSettings: {default: {}, type: string}, use: {default: Array, type: string}, ctx: {default: {}, type: string}, logger: {default: boolean, type: string}, viewsSettings: {default: {extension: string, map: {hbs: string}}, type: string}, autoStart: {default: boolean, type: string}, structSettings: {default: {}, type: string}, serverOptions: {default: null, type: string}, viewsPath: {default: string, type: string}, port: {default: number, type: string}, bodySettings: {default: {}, type: string}, host: {default: string, type: string}, routerSettings: {default: {}, type: string}, staticPath: {default: string, type: string}, successSettings: {default: {}, type: string}, cacheSettings: {default: {}, type: string}, corsSettings: {default: {}, type: string}, loggerSettings: {default: {}, type: string}, sessionSettings: {default: {}, type: string}}}
  */
 module.exports = {
     host: {
@@ -9,25 +9,9 @@ module.exports = {
     },
     port: {
         type: 'number',
-        default: 80
-    },
-    devPort: {
-        type: 'number',
         default: 3000
     },
-    dev: {
-        type: 'boolean',
-        default: false
-    },
-    SSLPort: {
-        type: 'number',
-        default: 443
-    },
     serverOptions: {
-        type: 'any',
-        default: null
-    },
-    serverSSLOptions: {
         type: 'any',
         default: null
     },

@@ -30,17 +30,7 @@ npm install apj --save
 ```javascript
 const Apj = require('apj');
 
-new Apj().start(); // Listen on http://localhost:80
-
-```
-
-Dev mode
-```javascript
-
-new Apj({
-    dev: true
-}).start(); // Listen on http://localhost:3000
-
+new Apj().start(); // Listen on http://localhost:3000
 ```
 
 Add routes
@@ -84,9 +74,7 @@ new Apj({
         * [.start(port)](#Apj+start) ⇒ [<code>Apj</code>](#Apj)
         * [.stop()](#Apj+stop) ⇒ [<code>Apj</code>](#Apj)
         * ["start"](#Apj+event_start)
-        * ["SSLStart"](#Apj+event_SSLStart)
         * ["stop"](#Apj+event_stop)
-        * ["SSLStop"](#Apj+event_SSLStop)
     * _inner_
         * [~apj](#Apj..apj) : <code>object</code>
 
@@ -109,19 +97,10 @@ Create instance
     <td>[opt.host]</td><td><code>string</code></td><td><code>&quot;localhost&quot;</code></td><td><p>host</p>
 </td>
     </tr><tr>
-    <td>[opt.port]</td><td><code>number</code></td><td><code>80</code></td><td><p>port</p>
+    <td>[opt.port]</td><td><code>number</code></td><td><code>3000</code></td><td><p>port</p>
 </td>
     </tr><tr>
     <td>[opt.serverOptions]</td><td><code>object</code></td><td></td><td><p>server options</p>
-</td>
-    </tr><tr>
-    <td>[opt.devPort]</td><td><code>number</code></td><td><code>3000</code></td><td><p>dev port (when dev is true)</p>
-</td>
-    </tr><tr>
-    <td>[opt.SSLPort]</td><td><code>number</code></td><td><code>443</code></td><td><p>SSL port</p>
-</td>
-    </tr><tr>
-    <td>[opt.serverSSLOptions]</td><td><code>object</code></td><td></td><td><p>SSL server options</p>
 </td>
     </tr><tr>
     <td>[opt.helmetSettings]</td><td><code>object</code></td><td></td><td><p>koa-helmet settings</p>
@@ -186,7 +165,7 @@ Create instance
 Start server app
 
 **Kind**: instance method of [<code>Apj</code>](#Apj)  
-**Emits**: [<code>start</code>](#Apj+event_start), [<code>SSLStart</code>](#Apj+event_SSLStart)  
+**Emits**: [<code>start</code>](#Apj+event_start)  
 <table>
   <thead>
     <tr>
@@ -205,29 +184,17 @@ Start server app
 Stop server app
 
 **Kind**: instance method of [<code>Apj</code>](#Apj)  
-**Emits**: [<code>stop</code>](#Apj+event_stop), [<code>SSLStop</code>](#Apj+event_SSLStop)  
+**Emits**: [<code>stop</code>](#Apj+event_stop)  
 <a name="Apj+event_start"></a>
 
 ### "start"
 Triggered on server start
 
 **Kind**: event emitted by [<code>Apj</code>](#Apj)  
-<a name="Apj+event_SSLStart"></a>
-
-### "SSLStart"
-Triggered on SSL server start
-
-**Kind**: event emitted by [<code>Apj</code>](#Apj)  
 <a name="Apj+event_stop"></a>
 
 ### "stop"
 Triggered on server stop
-
-**Kind**: event emitted by [<code>Apj</code>](#Apj)  
-<a name="Apj+event_SSLStop"></a>
-
-### "SSLStop"
-Triggered on SSL server stop
 
 **Kind**: event emitted by [<code>Apj</code>](#Apj)  
 <a name="Apj..apj"></a>
@@ -253,9 +220,6 @@ Apj instance
 </td>
     </tr><tr>
     <td>server</td><td><code>object</code></td><td><p>server instance</p>
-</td>
-    </tr><tr>
-    <td>SSLServer</td><td><code>object</code></td><td><p>SSL server instance</p>
 </td>
     </tr>  </tbody>
 </table>

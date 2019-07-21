@@ -10,7 +10,6 @@ describe('Apj response-error-handler', function () {
 
     before(function () {
         app = new Apj({
-            dev: true,
             responseErrorHandler: function(error, devMode) {
                 return {
                     message: 'ciao',

@@ -10,7 +10,6 @@ describe('Apj router', function () {
 
     before(function () {
         app = new Apj({
-            dev: true,
             staticPath: __dirname + '/static',
             use: [
                 async (ctx, next) => {

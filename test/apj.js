@@ -3,9 +3,7 @@ const Apj = require('../');
 describe('Apj', function () {
 
     it('should be ok', function (done) {
-        const app = new Apj({
-            dev: true
-        });
+        const app = new Apj();
 
         app.on('start', () => {
             console.log('START APP');
