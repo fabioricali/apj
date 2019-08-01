@@ -1,6 +1,6 @@
 {
   "name": "apj",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Start with a complete Koa server with zero configuration.",
   "main": "index.js",
   "scripts": {
