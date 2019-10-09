@@ -13,7 +13,7 @@ const session = require('koa-session');
 const cors = require('@koa/cors');
 const responseError = require('./responseError');
 const http = require('http');
-const https = require('https');
+//const https = require('https');
 const EventEmitter = require('events');
 const options = require('./options');
 
